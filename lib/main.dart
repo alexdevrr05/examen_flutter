@@ -5,17 +5,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
   runApp(const MyApp());
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // Hides the status bar if you are in mobile
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
@@ -30,7 +35,7 @@ class MyApp extends StatelessWidget {
         Locale('en', ''), // English, no country code
         Locale('es', ''), // Spanish, no country code
       ],
-      locale: Locale('es', ''),
+      locale: Locale('en', ''),
       home: HomePage(),
       title: 'Simple Jobs',
       theme: ThemeData(

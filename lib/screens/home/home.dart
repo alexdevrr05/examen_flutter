@@ -1,5 +1,6 @@
 import 'package:examen/constants/colors.dart';
 import 'package:examen/screens/profile/profile.dart';
+import 'package:examen/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:examen/screens/widgets/home_app_bar.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     bool isMobile(BuildContext context) => widthSize < 600;
 
     return Scaffold(
+      drawer: Drawer1(),
       body: Stack(
         children: [
           Row(
@@ -83,7 +86,6 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
               label: 'Home',
               icon: Icon(
-                // color: Colors.white,
                 Icons.home,
                 size: 20,
               ),
